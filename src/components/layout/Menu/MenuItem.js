@@ -1,21 +1,57 @@
-import Cart from "../../icons/Cart"
-import Rupee from "../../icons/Rupee";
+'use client';
+import { CartContext } from "@/components/AppContext";
+import Image from "next/image";
+import { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import MenuItemTile from "./MenuItemTile";
 
 
-export default function MenuItem(){
+export default function MenuItem(menuItem){
+
+    const {image, name, description, category , basePrice, sizes, extraAddOnPrices} =menuItem;
+
+    const [showPopup, setShowPopup] = useState(false); 
+
+    const {addToCart} = useContext(CartContext);
+
+    function handleAddToCartButtonClick(){
+        if( sizes.length ===0 && extraAddOnPrices.length === 0){
+            
+            addToCart(menuItem);
+            toast.success('Added to cart!');
+        }else{
+            setShowPopup(true);
+        }
+
+    }
     return(
-    <div className="bg-gray-100 p-2 rounded-md text-left hover:bg-white hover:shadow-md hover:shadow-black/25 transition-all">
-    <img className="rounded-md border side-4"src="/shrimp.png" alt="shrimp"/>
-        <h4 className="text-black text-xl font-extrabold  my-2 text-center">Shrimp</h4>
-        <p className="text-center text-gray-500 my-0">Succulent shrimp, infused with exotic spices,
-         offering a tantalizing taste of the sea.</p>
-        <div className="flex gap-12 my-3">
-            <button className="bg-primary text-white text-sm px-5 py-3 rounded-full flex gap-1">Add to cart <Cart />
-        </button>
-        <h4 className="flex gap-1 py-2 font-bold"><Rupee /> 265 </h4>
-        </div>
-        
-    </div>
+        <>
+           {showPopup && (
+            <div className="fixed inset-0 bg-black/80 flex items-center justify-center">
+                <div className="bg-white p-4 rounded-lg max-w-md">
+                    <Image src ={image} alt ={name} width={300} height ={200} className ="mx-auto" />
+                    <h2 className="text-lg font-bold text-center mb-2">{name}</h2>
+                    <p className="text-center text-gray-500 text-sm mb-2">{description}</p>
+                    {sizes?.length > 0 && (
+                        <div className="bg-gray-200 rounded-md p-2">
+                            <h3>Pick your size</h3>{
+                                sizes.map(size => (
+                                    // eslint-disable-next-line react/jsx-key
+                                    <label>
+                                        <input type = "radio" /> {size.name} {size.price}
+                                    </label>
+                                )) }
+                                </div>
+                    )}
+                     </div>
+            </div>
+           )}
+
+           <MenuItemTile  onAddToCart={handleAddToCartButtonClick} 
+           {...menuItem} />
+            
+
+    </>
 
     );
 }
