@@ -20,14 +20,15 @@ export default function MenuItem(menuItem){
     const {addToCart} = useContext(CartContext);
 
     function handleAddToCartButtonClick(){
-        if( sizes.length ===0 && extraAddOnPrices.length === 0){
-            
-            addToCart(menuItem);
-            toast.success('Added to cart!');
-        }else{
+        const hasOptions =  sizes.length > 0 || extraAddOnPrices.length > 0;
+        if(hasOptions && !showPopup){
             setShowPopup(true);
+            return;
+           
         }
-
+        addToCart(menuItem,selectedSize, selectedExtras );
+        setShowPopup(false);
+        toast.success('Added to cart!');
     }
 
     function handleExtraThingClick(ev, extraThing) {
@@ -86,7 +87,8 @@ export default function MenuItem(menuItem){
                                 )) }
                                 </div>
                     )}
-                    <button className="primary sticky bottom-2"type="button">Add to cart ₹{selectedPrice}</button>
+                    <button className="primary sticky bottom-2"type="button" onClick={handleAddToCartButtonClick} >Add to cart ₹{selectedPrice}</button>
+                    <button className="mt-2" type="button" onClick={() => setShowPopup(false)}>Cancel</button>
                      </div>
             </div>
             </div>

@@ -1,5 +1,5 @@
 export default function AddressInputs({addressProps,setAddressProp,disabled=false}) {
-    const {phone, streetAddress, postalCode, city, country} = addressProps;
+    const {phone, streetAddress, pinCode, city, state} = addressProps;
     return (
       <>
         <label>Phone</label>
@@ -15,11 +15,11 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
         />
         <div className="grid grid-cols-2 gap-2">
           <div>
-            <label>Postal code</label>
+            <label>Pin code</label>
             <input
               disabled={disabled}
-              type="text" placeholder="Postal code"
-              value={postalCode || ''} onChange={ev => setAddressProp('postalCode', ev.target.value)}
+              type="text" placeholder="Pin code"
+              value={pinCode || ''} onChange={ev => setAddressProp('pinCode', ev.target.value)}
             />
           </div>
           <div>
@@ -31,11 +31,11 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
             />
           </div>
         </div>
-        <label>Country</label>
+        <label>State</label>
         <input
           disabled={disabled}
-          type="text" placeholder="Country"
-          value={country || ''} onChange={ev => setAddressProp('country', ev.target.value)}
+          type="text" placeholder="state"
+          value={state || ''} onChange={ev => setAddressProp('state', ev.target.value)}
         />
       </>
     );
