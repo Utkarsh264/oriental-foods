@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useState } from "react";
 import MenuItem from "./Menu/MenuItem";
+import { redirect } from "next/navigation";
+
 export default function Product(){
 
     const [bestSellers, setBestSellers] = useState([]);
