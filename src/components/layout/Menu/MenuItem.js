@@ -66,9 +66,9 @@ export default function MenuItem(menuItem){
                         <div className="py-2">
                             <h3 className="text-center text-gray-900 mb-2"><b><u>Pick your size</u></b></h3>{
                                 sizes.map(size => (
-                                    // eslint-disable-next-line react/jsx-key
-                                    <label className="flex items-center gap-2 p-4 border rounded-md mb-1">
-                                        <input type = "radio" onClick={() => setSelectedSize(size)}
+                                    
+                                    <label key={size._id} className="flex items-center gap-2 p-4 border rounded-md mb-1">
+                                        <input type = "radio" onChange={() => setSelectedSize(size)}
                                          checked= {selectedSize?.name === size.name} name ="size"/> {size.name} :   ₹ {basePrice + size.price}
                                     </label>
                                 )) }
@@ -78,9 +78,10 @@ export default function MenuItem(menuItem){
                         <div className="py-2">
                             <h3 className="text-center text-gray-900 mb-2"><b><u>Pick your Extra Add On</u></b></h3>{
                                 extraAddOnPrices.map(extraThing => (
-                                    // eslint-disable-next-line react/jsx-key
-                                    <label className="flex items-center gap-2 p-4 border rounded-md mb-1">
-                                        <input type = "checkbox" onClick={ev => handleExtraThingClick(ev, extraThing)}
+                                    
+                                    <label key={extraThing._id} className="flex items-center gap-2 p-4 border rounded-md mb-1">
+                                        <input type = "checkbox" onChange={ev => handleExtraThingClick(ev, extraThing)}
+                                        checked={selectedExtras.map( e => e._id).includes(extraThing._id)}
                                          name ={extraThing.name}/> 
                                         {extraThing.name}: + ₹ {extraThing.price}
                                     </label>

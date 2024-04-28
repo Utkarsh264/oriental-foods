@@ -9,18 +9,18 @@ export default function UserForm({user,onSave}) {
   const [image, setImage] = useState(user?.image || '');
   const [phone, setPhone] = useState(user?.phone || '');
   const [streetAddress, setStreetAddress] = useState(user?.streetAddress || '');
-  const [postalCode, setPostalCode] = useState(user?.postalCode || '');
+  const [pinCode, setPinCode] = useState(user?.pinCode || '');
   const [city, setCity] = useState(user?.city || '');
-  const [country, setCountry] = useState(user?.country || '');
+  const [state, setState] = useState(user?.state || '');
   const [admin, setAdmin] = useState(user?.admin || false);
   const {data:loggedInUserData} = useProfile();
 
   function handleAddressChange(propName, value) {
     if (propName === 'phone') setPhone(value);
     if (propName === 'streetAddress') setStreetAddress(value);
-    if (propName === 'postalCode') setPostalCode(value);
+    if (propName === 'pinCode') setPinCode(value);
     if (propName === 'city') setCity(value);
-    if (propName === 'country') setCountry(value);
+    if (propName === 'state') setState(value);
   }
 
   return (
@@ -35,7 +35,7 @@ export default function UserForm({user,onSave}) {
         onSubmit={ev =>
           onSave(ev, {
             name:userName, image, phone, admin,
-            streetAddress, city, country, postalCode,
+            streetAddress, city, state, pinCode,
           })
         }
       >
@@ -54,7 +54,7 @@ export default function UserForm({user,onSave}) {
           placeholder={'email'}
         />
         <AddressInputs
-          addressProps={{phone, streetAddress, postalCode, city, country}}
+          addressProps={{phone, streetAddress, pinCode, city, state}}
           setAddressProp={handleAddressChange}
         />
         {loggedInUserData.admin && (

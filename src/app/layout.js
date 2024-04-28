@@ -20,8 +20,9 @@ export default function RootLayout({ children }) {
             <Toaster />
           <Header />
           {children}
-          </AppProvider>
+          
           <footer className="border-t p-4 text-center text-sm text-gray-500 mt-8">&copy; 2024  All rights reserved</footer>
+          </AppProvider>
         </main>
         </body>
     </html>

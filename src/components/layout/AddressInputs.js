@@ -34,7 +34,7 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
         <label>State</label>
         <input
           disabled={disabled}
-          type="text" placeholder="state"
+          type="text" placeholder="State"
           value={state || ''} onChange={ev => setAddressProp('state', ev.target.value)}
         />
       </>

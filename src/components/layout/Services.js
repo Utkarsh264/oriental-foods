@@ -12,7 +12,7 @@ export default function Services(){
                     Why Choose Our Favourite Food
                 </h2>
             </div>
-            <div className="grid grid-cols-3 gap-4 py-6 ">
+            <div className="grid sm:grid-cols-3 gap-4 py-6 ">
                 <div className="min-h-[100px] rounded-lg bg-white shadow border-2 
                 hover:shadow-lg hover:shadow-black/35 transition-all">
                 <div className="mx-28 my-12">

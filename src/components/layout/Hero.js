@@ -3,8 +3,8 @@ import Right from "../icons/Right";
 import Play from "../icons/Play";
 export default function Hero() {
     return(
-        <section className="hero">
-            <div className="py-12">
+        <section className="hero md:mt-4">
+            <div className="py-8 md:py-12">
             <h1 className="text-4xl font-semibold"> Discover the Flavors <br /> of the 
             <span className="text-primary"> orient</span> at the<br /> 
             <span className="text-primary">Oriental Foods</span></h1>
@@ -20,7 +20,7 @@ export default function Hero() {
                 <button className=" bg-white text- black rounded full px-4 py-2 flex gap-1 font-bold"><Play /> Learn More </button>
             </div>
             </div>
-            <div className="relative">
+            <div className="relative hidden md:block">
                 <Image src={'/sushi.png'} layout={'fill'}
                 objectFit = {'contain'} alt={'sushi'} />
                 </div>

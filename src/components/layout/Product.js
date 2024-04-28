@@ -25,7 +25,7 @@ export default function Product(){
                     Most Popular Items
                 </h2>
             </div>
-            <div className=" grid grid-cols-3 gap-4 py-6 ">
+            <div className=" grid sm:grid-cols-3 gap-4 py-6 ">
             {bestSellers?.length > 0 && bestSellers.map(item => (
           <MenuItem key={item._id} {...item} />
         ))}
