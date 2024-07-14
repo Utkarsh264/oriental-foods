@@ -6,9 +6,11 @@ import { SocialIcon } from 'react-social-icons'
 
 export default function SubFooter(){
     return(
-        <section className="subfooter bg-gray-100 rounded-lg flex gap-3">
+        <section className="subfooter bg-gray-100 rounded-lg  flex flex-wrap gap-3 sm:flex-col md:flex-row " id="contact">
+          
+            
             <div className="mx-4 py-6 ">
-              <span className="text-primary text-xl text-center mx-14">Oriental Foods</span>  
+              <span className="text-primary  text-xl text-center px-14 ">Oriental Foods</span>  
               <p className=" text-gray-500 text-xs py-2">Welcome to Oriental Foods, where the flavors of the<br /> 
                 East come alive in every dish. 
                 Step into a world of<br /> culinary delight as we invite you on a journey to <br />
@@ -20,19 +22,20 @@ export default function SubFooter(){
                 <SocialIcon url="https://linkedin.com"  style={{  width: 30, height:30 }}/>
                 </div>
             </div>
-            <div className=" py-6 ">
-              <span className="text-secondary text-xl font-bold ">Opening Restaurant</span>  
+            <div className=" py-6  ">
+              <span className="text-secondary text-xl font-bold   ">Opening Restaurant</span>  
               <p className=" text-gray-500 text-xs py-2 text-center">Monday-Saturday<br />
               12:00 noon - 12:00 midnight<br />
               Sunday Closed</p>
             </div>
+            
             <div className=" ml-6 py-6 ">
               <span className="text-secondary text-xl font-bold ">User Link</span>  
               <nav className=" text-gray-500 text-xs py-2 text-center">
               <Link href={'/'}>Home</Link><br />
-              <Link href={''}>Menu</Link><br />
+              <Link href={'/menu'}>Menu</Link><br />
               <Link href={''}>About</Link><br />
-              <Link href={''}>Contact</Link>
+              <Link href={'/#contact'}>Contact</Link>
               </nav>
             </div>
             <div className="mx-5 py-6 ">
@@ -44,6 +47,8 @@ export default function SubFooter(){
                     
                     
             </div>
+            
+            
         </section>
     )
 }

@@ -57,29 +57,29 @@ export default function EditMenuItemPage(){
         
     }
 
-    async function handleDeleteClick(){
-        const promise = new Promise (async(resolve, reject)=>{
-            const res = await fetch('/api/menu-items?_id='+id,{
-                method:'DELETE',
-            });
-            if(res.ok)
-              resolve();
-            else
-            reject();
+    // async function handleDeleteClick(){
+    //     const promise = new Promise (async(resolve, reject)=>{
+    //         const res = await fetch('/api/menu-items?_id='+id,{
+    //             method:'DELETE',
+    //         });
+    //         if(res.ok)
+    //           resolve();
+    //         else
+    //         reject();
 
 
-        });
-       await toast.promise (promise, {
-        loading: 'Deleting...',
-        success: 'Deleted',
-        error:'Error',
-       }) ;
+    //     });
+    //    await toast.promise (promise, {
+    //     loading: 'Deleting...',
+    //     success: 'Deleted',
+    //     error:'Error',
+    //    }) ;
 
 
-       setRedirectToItems(true);
+    //    setRedirectToItems(true);
 
 
-    }
+    // }
 
     if(redirectToItems){
         return redirect('/menu-items');
@@ -107,13 +107,13 @@ export default function EditMenuItemPage(){
             </div>
             <MenuItemForm menuItem = {menuItem} onSubmit={handleFormSubmit}/>
             
-            <div className="max-w-md mx-auto mt-2">
-                <div className="max-w-xs ml-auto pl-4">
+            {/* <div className="max-w-md mx-auto mt-2">
+                <div className="max-w-md ml-auto pl-4">
                 
                     <DeleteButton  label ="Delete this item" onDelete= {handleDeleteClick} />
                     
                 </div>
-            </div>
+            </div> */}
       
         </section>
 

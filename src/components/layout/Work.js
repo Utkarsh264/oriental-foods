@@ -1,6 +1,6 @@
 export default function Work(){
     return(
-        <section className="work mt-6 pb-10 mb-6 hover:shadow-lg hover:shadow-black/35 transition-all rounded-lg ">
+        <section className="work mt-6 pb-10 mb-6 hover:shadow-lg hover:shadow-black/35 transition-all rounded-lg hidden md:block ">
              <div className="text-center">
                 <h3 className="text-primary ">
                 How to Use

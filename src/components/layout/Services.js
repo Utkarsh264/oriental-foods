@@ -15,7 +15,7 @@ export default function Services(){
             <div className="grid sm:grid-cols-3 gap-4 py-6 ">
                 <div className="min-h-[100px] rounded-lg bg-white shadow border-2 
                 hover:shadow-lg hover:shadow-black/35 transition-all">
-                <div className="mx-28 my-12">
+                <div className="px-52 py-12 md:px-28 ">
                         <Smile />
                         
                     </div>
@@ -27,7 +27,7 @@ export default function Services(){
                 </div>
                 <div className="min-h-[100px] rounded-lg
                  bg-white shadow border-2 hover:shadow-lg hover:shadow-black/35 transition-all">
-                <div className="mx-28 my-12">
+                <div className="px-52 py-12 md:px-28">
                         <Truck />
                         
                     </div>
@@ -39,7 +39,7 @@ export default function Services(){
                 </div>
                 <div className="min-h-[100px] rounded-lg bg-white shadow border-2
                  hover:shadow-lg hover:shadow-black/35 transition-all ">
-                    <div className="mx-28 my-12">
+                    <div className="px-52 py-12 md:px-28">
                         <Truck />
                         
                     </div>

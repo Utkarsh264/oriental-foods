@@ -3,6 +3,10 @@ import EditableImage from "@/components/layout/EditableImage";
 import { useEffect, useState } from "react";
 import MenuItemPriceProps from "@/components/layout/MenuItemPriceProps";
 import { Category } from "@/app/models/Category";
+import DeleteButton from "@/components/DeleteButton";
+import { redirect, useParams } from "next/navigation";
+import toast from "react-hot-toast";
+
 
 export default function MenuItemForm({onSubmit,menuItem}){
 
@@ -15,6 +19,10 @@ export default function MenuItemForm({onSubmit,menuItem}){
     const [categories, setCategories] = useState([]);
     const [extraAddOnPrices, setExtraAddOnPrices] = useState(menuItem?.extraAddOnPrices || []);
 
+    const {id} = useParams();
+    const [redirectToItems, setRedirectToItems]= useState(false);
+    
+
 
     useEffect(() => {
         fetch('/api/categories').then(res => {
@@ -23,6 +31,33 @@ export default function MenuItemForm({onSubmit,menuItem}){
             });
         });
     }, []);
+
+    async function handleDeleteClick(){
+        const promise = new Promise (async(resolve, reject)=>{
+            const res = await fetch('/api/menu-items?_id='+id,{
+                method:'DELETE',
+            });
+            if(res.ok)
+              resolve();
+            else
+            reject();
+
+
+        });
+       await toast.promise (promise, {
+        loading: 'Deleting...',
+        success: 'Deleted',
+        error:'Error',
+       }) ;
+
+
+       setRedirectToItems(true);
+
+
+    }
+    if(redirectToItems){
+        return redirect('/menu-items');
+    }
 
    
 
@@ -53,6 +88,13 @@ export default function MenuItemForm({onSubmit,menuItem}){
                 <MenuItemPriceProps name={'Extra Add Ons'} addLabel={'Extra Add On Prices'}
                  props={extraAddOnPrices} setProps={setExtraAddOnPrices}/> 
                  <button type="submit">Save</button>
+                 <div className="max-w-md mx-auto mt-2">
+                <div className="max-w-md ml-auto pl-4">
+                
+                    <DeleteButton  label ="Delete this item" onDelete={handleDeleteClick} />
+                    
+                </div>
+            </div>
                
 
             </div>

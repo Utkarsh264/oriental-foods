@@ -5,7 +5,7 @@ import Location from "../icons/Location"
 
 export default function Address1(){
     return(
-        <section className="address">
+        <section className="address hidden md:block">
             <div className="bg-gray-10  rounded-lg ">
                 <div className=" flex gap-3 divide-x-2 divide-gray-300 hover:shadow-lg hover:shadow-black/35 transition-all rounded-xl  ">
                     

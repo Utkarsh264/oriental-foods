@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 export async function POST(req) {
     const body = await req.json();
-    mongoose.connect("mongodb+srv://oriental-foods:akSbtQxy9zCLwcYs@cluster0.dnjx3w0.mongodb.net/oriental-foods");
+    mongoose.connect(process.env.MONGO_URL);
     const pass = body.password;
     if(!pass?.length || pass.length < 5){
         new Error ('password must be atleast 5 characters');
@@ -25,5 +25,3 @@ export async function POST(req) {
 
 
 
-
-// Method to compare the incoming plain text password with the hashed one in database, try doing it properly

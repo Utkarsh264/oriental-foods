@@ -16,7 +16,8 @@ export default function Hero() {
             innovation, and culinary mastery in every bite
             </p>
             <div className="flex gap-8">
-                <button className="bg-primary flex gap-1 text-white rounded-full px-4 py-2">Order Now <Right /></button>
+                
+                <button className="bg-primary flex gap-1 text-white rounded-full px-4 py-2" > Order Now<Right /></button>
                 <button className=" bg-white text- black rounded full px-4 py-2 flex gap-1 font-bold"><Play /> Learn More </button>
             </div>
             </div>
